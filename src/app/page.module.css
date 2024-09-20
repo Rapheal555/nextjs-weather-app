@@ -67,6 +67,7 @@
   width: 80px;
   height: 40px;
   border-radius: 50px;
+  cursor: pointer;
 }
 .icon_and_weatherInfo {
   display: flex;
