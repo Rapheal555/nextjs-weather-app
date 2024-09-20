@@ -99,7 +99,7 @@ const Home = () => {
               <div className={styles.weatherInfo}>
                 <div className={styles.temperature}>
                   <span>
-                    {(weatherData?.main?.temp - 273.5).toFixed(2) +
+                    {(weatherData?.main?.temp - 273.5).toFixed(0) +
                       String.fromCharCode(176)}
                   </span>
                 </div>
