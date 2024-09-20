@@ -13,12 +13,14 @@ function getCurrentDate() {
 const Home = () => {
   const date = getCurrentDate();
   const [weatherData, setWeatherData] = useState(null);
-  const [city, setCity] = useState("lahore");
+  const [city, setCity] = useState("ibadan");
+  const baseUrl = window.location.origin;
+  // console.log(baseUrl);
 
   async function fetchData(cityName) {
     try {
       const response = await fetch(
-        "http://localhost:3000/api/weather?address=" + cityName
+        `${baseUrl}/api/weather?address=` + cityName
       );
       const jsonData = (await response.json()).data;
       setWeatherData(jsonData);
@@ -30,7 +32,7 @@ const Home = () => {
   async function fetchDataByCoordinates(latitude, longitude) {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/weather?lat=${latitude}&lon=${longitude}`
+        `${baseUrl}/api/weather?lat=${latitude}&lon=${longitude}`
       );
       const jsonData = (await response.json()).data;
       setWeatherData(jsonData);
