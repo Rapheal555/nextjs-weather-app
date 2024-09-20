@@ -14,7 +14,8 @@ const Home = () => {
   const date = getCurrentDate();
   const [weatherData, setWeatherData] = useState(null);
   const [city, setCity] = useState("ibadan");
-  const baseUrl = window.location.origin;
+  const [baseUrl, setBaseUrl] = useState();
+  // const baseUrl = ;
   // console.log(baseUrl);
 
   async function fetchData(cityName) {
@@ -42,6 +43,11 @@ const Home = () => {
   }
 
   useEffect(() => {
+    setBaseUrl(window.location.origin);
+  }, []);
+
+  useEffect(() => {
+    // setBaseUrl(window.location.origin);
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -53,7 +59,7 @@ const Home = () => {
         }
       );
     }
-  }, []);
+  }, [baseUrl]);
 
   return (
     <main className={styles.main}>
